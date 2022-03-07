@@ -1,47 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.h                                        :+:      :+:    :+:   */
+/*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcavallu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 08:19:45 by lcavallu          #+#    #+#             */
-/*   Updated: 2022/03/07 18:39:23 by lcavallu         ###   ########.fr       */
+/*   Updated: 2022/03/07 18:42:02 by lcavallu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_H
-# define PHONEBOOK_H
+#include "phonebook.h"
 
-# include <iostream>
-# include <iomanip>
-# include <string>
-
-class contact
+void	phonebook::add(void)
 {
-	int					index;
-	static std::string	infos_name[4];
-	std::string			names[4];
+//	if (this->nb == 8)
+//	{
+//		mettre a 0 le contact 8
+//		get infos (8)
+//	}
+	if (this->contact[this->nb].get_infos(this->nb + 1))
+		this->nb++;	
+}
 
-	enum				infos
-	{
-		FirstName,
-		LastName,
-		PhoneNumber,
-		Secret
-	};
-	public:
-		bool	get_infos(int index);
-};
-
-class phonebook
+void	phonebook::search(void)
 {
-		contact		contact[8];
-		int			nb;
-public:
-		void	print(void);
-		void	add(void);
-		void	search(void);
-};
+//	int	index;
 
-#endif
+	if (this->nb == 0)
+		std::cout << "    Add a contact first... Please ^•ﻌ•^"  << std::endl;
+}

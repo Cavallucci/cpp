@@ -6,15 +6,17 @@
 /*   By: lcavallu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 08:19:45 by lcavallu          #+#    #+#             */
-/*   Updated: 2022/03/07 13:23:00 by lcavallu         ###   ########.fr       */
+/*   Updated: 2022/03/07 18:24:52 by lcavallu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.h"
 
-void	add()
+void	phonebook::print(void)
 {
-		
+	std::cout << "              ▄██▄██▄" << std::endl;
+	std::cout << "PHONEBOOK─────▀█████▀" << std::endl;
+	std::cout << "                ▀█▀  " << std::endl;
 }
 
 int	main(void)
@@ -24,14 +26,16 @@ int	main(void)
 	std::string	cmd;
 
 	ask = true;
+	pb.print();
 	while (ask)
 	{
+		std::cout << "❥";
 		std::getline(std::cin, cmd);
 		if (cmd == "ADD")
 			pb.add();
 		else if (cmd == "SEARCH")
 			pb.search();
-		else if (cmd == "EXIT")
+		if (cmd == "EXIT")
 			ask = false;
 	}
 	return (0);
