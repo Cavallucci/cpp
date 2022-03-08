@@ -6,7 +6,7 @@
 /*   By: lcavallu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 08:19:45 by lcavallu          #+#    #+#             */
-/*   Updated: 2022/03/07 18:42:02 by lcavallu         ###   ########.fr       */
+/*   Updated: 2022/03/08 15:33:10 by lcavallu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,34 @@ void	phonebook::search(void)
 
 	if (this->nb == 0)
 		std::cout << "    Add a contact first... Please ^•ﻌ•^"  << std::endl;
+	else
+	{
+		this->print_header();
+	}
+}
+
+void	phonebook::print_header(void)
+{
+std::cout << "                    'Xx  xX*," << std::endl;
+std::cout << "                 ,*xXXx_xXx" << std::endl;
+std::cout << "                   _xXXXXXxx*," << std::endl;
+std::cout << "                 ,*XXx@x@Xx" << std::endl;
+std::cout << "                   X @|@@ `x" << std::endl;
+std::cout << "                   '  ||    '" << std::endl;
+std::cout << "                      ||" << std::endl;
+std::cout << "                      ||" << std::endl;
+std::cout << "                      ||                                   ." << std::endl;
+std::cout << "                      ||                                   |\\ " << std::endl;
+std::cout << "                  /ssssssss.                               |_\\ " << std::endl;
+std::cout << "             /sssssssSSSSssssssssss.                     __|__ " << std::endl;
+std::cout << "          /sssssSSSSSSSSSSSSSSSssssssssssss.             \\   / " << std::endl;
+std::cout << " ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" << std::endl;
+std::cout << "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" << std::endl;
+std::cout << "           INDEX | FIRST NAME | LAST NAME | PHONE | SECRET" << std::endl;
+std::cout << " ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" << std::endl;
+}
+
+void	phonebook::print_goodbye(void)
+{
+	
 }

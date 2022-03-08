@@ -6,7 +6,7 @@
 /*   By: lcavallu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 08:19:45 by lcavallu          #+#    #+#             */
-/*   Updated: 2022/03/07 18:44:30 by lcavallu         ###   ########.fr       */
+/*   Updated: 2022/03/08 14:40:06 by lcavallu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ bool	contact::get_infos(int indx)
 	len = 0;
 	this->index = indx;
 	std::cout << "cc\n";
-	for (int i = FirstName; i <= Secret; i++)
-		this->names[i] = std::string();
 	for (int i = FirstName; i <= Secret; i++)
 	{
 		std::cout << "    ʕ•ᴥ•ʔ  " << contact::infos_name[i] << ":\n❥";
@@ -37,10 +35,18 @@ bool	contact::get_infos(int indx)
 	return (true);
 }
 
+std::string	contact::names[4] =
+{
+	"First Name",
+	"Last Name",
+	"Phone Number",
+	"Darkest Secret"
+};
+
 std::string	contact::infos_name[4] =
 {
-        "First Name",
-        "Last Name",
-        "Phone Number",
-        "Darkest Secret"
+	"First Name",
+	"Last Name",
+	"Phone Number",
+	"Darkest Secret"
 };

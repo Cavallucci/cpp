@@ -6,7 +6,7 @@
 /*   By: lcavallu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 08:19:45 by lcavallu          #+#    #+#             */
-/*   Updated: 2022/03/07 18:39:23 by lcavallu         ###   ########.fr       */
+/*   Updated: 2022/03/08 14:48:21 by lcavallu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ class contact
 {
 	int					index;
 	static std::string	infos_name[4];
-	std::string			names[4];
-
+	static std::string	names[4];
 	enum				infos
 	{
 		FirstName,
@@ -30,8 +29,8 @@ class contact
 		PhoneNumber,
 		Secret
 	};
-	public:
-		bool	get_infos(int index);
+public:
+	bool	get_infos(int indx);
 };
 
 class phonebook
@@ -42,6 +41,7 @@ public:
 		void	print(void);
 		void	add(void);
 		void	search(void);
+		void	print_header(void);
 };
 
 #endif
