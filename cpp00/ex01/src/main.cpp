@@ -6,7 +6,7 @@
 /*   By: lcavallu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 08:19:45 by lcavallu          #+#    #+#             */
-/*   Updated: 2022/03/07 18:24:52 by lcavallu         ###   ########.fr       */
+/*   Updated: 2022/03/10 13:14:37 by lcavallu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ int	main(void)
 		else if (cmd == "SEARCH")
 			pb.search();
 		if (cmd == "EXIT")
+		{
+			pb.print_goodbye();
 			ask = false;
+		}
 	}
 	return (0);
 }
