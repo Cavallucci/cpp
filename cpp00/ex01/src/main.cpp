@@ -6,7 +6,7 @@
 /*   By: lcavallu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 08:19:45 by lcavallu          #+#    #+#             */
-/*   Updated: 2022/03/10 13:14:37 by lcavallu         ###   ########.fr       */
+/*   Updated: 2022/03/22 17:45:56 by lcavallu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	main(void)
 	pb.print();
 	while (ask)
 	{
+		if (!std::cin)
+			break;
 		std::cout << "❥";
 		std::getline(std::cin, cmd);
 		if (cmd == "ADD")

@@ -6,7 +6,7 @@
 /*   By: lcavallu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 08:19:45 by lcavallu          #+#    #+#             */
-/*   Updated: 2022/03/21 17:24:33 by lcavallu         ###   ########.fr       */
+/*   Updated: 2022/03/22 14:44:00 by lcavallu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,3 +52,10 @@ std::string	contact::infos_name[5] =
 	"Phone Number",
 	"Darkest Secret"
 };
+
+void	contact::print_contact()
+{
+	std::cout << "❥ Contact " << this-> index << "" << std::endl;
+	for (int i = FirstName; i <= Secret; i++)
+		std::cout << contact::infos_name[i] << ": " << this->names[i] << std::endl;
+}

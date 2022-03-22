@@ -6,7 +6,7 @@
 /*   By: lcavallu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 08:19:45 by lcavallu          #+#    #+#             */
-/*   Updated: 2022/03/21 17:22:47 by lcavallu         ###   ########.fr       */
+/*   Updated: 2022/03/22 14:25:35 by lcavallu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ public:
 
 		bool	get_infos(int indx);
 		void	infos_header(void);
+		void	print_contact(void);
 };
 
 class phonebook

@@ -6,7 +6,7 @@
 /*   By: lcavallu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 08:19:45 by lcavallu          #+#    #+#             */
-/*   Updated: 2022/03/21 17:26:17 by lcavallu         ###   ########.fr       */
+/*   Updated: 2022/03/22 17:59:39 by lcavallu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,19 @@ phonebook::~phonebook()
 
 void	phonebook::add(void)
 {
-//	if (this->nb == 8)
-//	{
-//		mettre a 0 le contact 8
-//		get infos (8)
-//	}
+	if (this->nb == 8)
+	{
+	//	this->contact[0].get_infos(1);
+		this->nb = 0;
+	}
 	if (this->contact[this->nb].get_infos(this->nb + 1))
 		this->nb++;	
 }
 
 void	phonebook::search(void)
 {
-//	int	index;
+	int			index;
+	std::string enter;
 
 	if (this->nb == 0)
 		std::cout << "    Add a contact first... Please ^•ﻌ•^"  << std::endl;
@@ -42,21 +43,17 @@ void	phonebook::search(void)
 	{
 		this->print_header();
 		std::cout << "❥ Enter Index or 0 to Exit\n";
-//		while (!(std::cin >> index) || (index < 0 || index > this->nb))
-//		{
-			// getline
-	//		std::cin.clear();
-	//		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	//		std::cout << "❥ Invalid Index\n";
-		}
-	//	std::cin.ignore(std::numeric_limits<std::streamsize>max(), '\n');
-	//	if (index > 0)
-	//		this->contact[index - 1].display();
-	
+		while (!(std::getline(std::cin, enter) >> index) || (index < 0 || index > this->nb))
+			std::cout << "❥ Invalid Index\n";
+		if (index > 0)
+			this->contact[index].print_contact();
+	}	
 }
 
 void	contact::infos_header(void)
 {
+	if (this->index < 1 || this->index > 8)
+		return;
 	std::cout << std::setw(10) << this->index;
 	for (int i = FirstName; i <= NickName; i++)
 	{
@@ -80,8 +77,8 @@ std::cout << "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" << std::endl;
 std::cout << " ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" << std::endl;
 std::cout << "   INDEX  |FIRST NAME| LAST NAME| NICKNAME |" << std::endl;
 std::cout << "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" << std::endl;
-	for (int i =0; i < this->nb; i++)
-		this->contact[i].infos_header();
+	for (int i = 0; i < 8; i++)
+			this->contact[i].infos_header();
 std::cout << "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" << std::endl;
 }
 
