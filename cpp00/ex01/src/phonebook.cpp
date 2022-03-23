@@ -6,7 +6,7 @@
 /*   By: lcavallu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 08:19:45 by lcavallu          #+#    #+#             */
-/*   Updated: 2022/03/22 17:59:39 by lcavallu         ###   ########.fr       */
+/*   Updated: 2022/03/23 15:15:31 by lcavallu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,14 @@ phonebook::~phonebook()
 void	phonebook::add(void)
 {
 	if (this->nb == 8)
-	{
-	//	this->contact[0].get_infos(1);
 		this->nb = 0;
-	}
 	if (this->contact[this->nb].get_infos(this->nb + 1))
 		this->nb++;	
 }
 
 void	phonebook::search(void)
 {
-	int			index;
-	std::string enter;
+	int			i;
 
 	if (this->nb == 0)
 		std::cout << "    Add a contact first... Please ^•ﻌ•^"  << std::endl;
@@ -43,10 +39,27 @@ void	phonebook::search(void)
 	{
 		this->print_header();
 		std::cout << "❥ Enter Index or 0 to Exit\n";
-		while (!(std::getline(std::cin, enter) >> index) || (index < 0 || index > this->nb))
-			std::cout << "❥ Invalid Index\n";
-		if (index > 0)
-			this->contact[index].print_contact();
+		while (1)
+		{
+			if (!(std::cin >> i) || i < 0 || i > this->nb)
+			{
+				std::cout << "❥ Invalid Index\n";
+				std::cin.clear();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			}
+			else if (i > 0)
+			{
+				this->contact[i - 1].print_contact();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				break;
+			}
+			else if (i == 0)
+			{
+				std::cout << "❥ Goodbye" << std::endl;
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				break;
+			}
+		}
 	}	
 }
 
