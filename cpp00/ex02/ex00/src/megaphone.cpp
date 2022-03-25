@@ -6,7 +6,7 @@
 /*   By: lcavallu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 08:19:45 by lcavallu          #+#    #+#             */
-/*   Updated: 2022/03/25 14:21:23 by lcavallu         ###   ########.fr       */
+/*   Updated: 2022/03/06 13:31:06 by lcavallu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
+char	ft_toupper(char c)
+{
+	return ((c >= 97 && c <= 122) ? c - 32 : c);
+}
+
 int	main(int argc, char **argv)
 {
 	int	i(1);
@@ -32,7 +37,7 @@ int	main(int argc, char **argv)
 		while (argv[i])
 		{
 			for (int j = 0; j < ft_strlen(argv[i]); j++)
-				std::cout << (char)std::toupper(argv[i][j]);
+				std::cout << ft_toupper(argv[i][j]);
 			i++;
 		}
 		std::cout << std::endl;

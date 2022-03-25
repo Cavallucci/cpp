@@ -6,7 +6,7 @@
 /*   By: lcavallu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 08:19:45 by lcavallu          #+#    #+#             */
-/*   Updated: 2022/03/25 14:22:25 by lcavallu         ###   ########.fr       */
+/*   Updated: 2022/03/23 15:15:31 by lcavallu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ void	phonebook::search(void)
 		{
 			if (!(std::cin >> i) || i < 0 || i > this->nb)
 			{
-				if (!(std::cin))
-					break;
 				std::cout << "❥ Invalid Index\n";
 				std::cin.clear();
 				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');

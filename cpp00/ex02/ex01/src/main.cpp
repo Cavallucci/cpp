@@ -1,41 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcavallu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 08:19:45 by lcavallu          #+#    #+#             */
-/*   Updated: 2022/03/25 14:21:23 by lcavallu         ###   ########.fr       */
+/*   Updated: 2022/03/23 14:47:27 by lcavallu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "phonebook.h"
 
-int	ft_strlen(char *str)
+void	phonebook::print(void)
 {
-	int i(0);
-
-	while (str[i])
-		i++;
-	return (i);
+	std::cout << "              ▄██▄██▄" << std::endl;
+	std::cout << "PHONEBOOK─────▀█████▀" << std::endl;
+	std::cout << "                ▀█▀  " << std::endl;
 }
 
-int	main(int argc, char **argv)
+int	main(void)
 {
-	int	i(1);
+	phonebook	pb;
+	bool		ask;
+	std::string	cmd;
 
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else
+	ask = true;
+	pb.print();
+	while (ask)
 	{
-		while (argv[i])
+		if (!std::cin)
+			break;
+		std::cout << "❥";
+		std::getline(std::cin, cmd);
+		if (cmd == "ADD")
+			pb.add();
+		else if (cmd == "SEARCH")
+			pb.search();
+		if (cmd == "EXIT")
 		{
-			for (int j = 0; j < ft_strlen(argv[i]); j++)
-				std::cout << (char)std::toupper(argv[i][j]);
-			i++;
+			pb.print_goodbye();
+			ask = false;
 		}
-		std::cout << std::endl;
 	}
-	return 0;
+	return (0);
 }
