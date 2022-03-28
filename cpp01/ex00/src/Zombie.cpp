@@ -16,16 +16,3 @@ Zombie::~Zombie(void)
 	std::cout << this->_name << " died" << std::endl;
 	return ;
 }
-
-Zombie	*newZombie(std::string name)
-{
-	return (new Zombie(name));
-}
-
-void	randomChump(std::string name)
-{
-	Zombie	zombie = Zombie(name);
-
-	zombie.announce();
-	return ;
-}

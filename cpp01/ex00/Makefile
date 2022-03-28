@@ -6,7 +6,7 @@
 #    By: lcavallu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/10 12:06:52 by lcavallu          #+#    #+#              #
-#    Updated: 2022/03/28 14:04:39 by lcavallu         ###   ########.fr        #
+#    Updated: 2022/03/28 15:37:35 by lcavallu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,9 @@ SRC_PATH	= src
 OBJ_PATH	= obj
 
 SOURCES =	main.cpp \
-			Zombie.cpp
+			Zombie.cpp \
+			randomChump.cpp \
+			newZombie.cpp
 
 SRC	= $(addprefix $(SRC_PATH)/,$(SOURCES))
 
