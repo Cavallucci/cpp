@@ -6,7 +6,7 @@
 #    By: lcavallu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/10 12:06:52 by lcavallu          #+#    #+#              #
-#    Updated: 2022/03/29 15:01:46 by lcavallu         ###   ########.fr        #
+#    Updated: 2022/03/30 18:29:34 by lcavallu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ $(NAME): $(OBJ)
 	@$(CC) $(FLAGS) -o $@ $^ -lreadline
 	@echo "$(GREEN)$@$(NOC)"
 
-$(OBJ_PATH)/%.o: $(SRC_PATH)/%.cpp $(INCLUDE)/$(NAME).hpp
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.cpp $(INCLUDE)
 	@mkdir -p obj
 	@$(CC) $(FLAGS) -I$(INCLUDE) -c -o $@ $<
 	@echo "$(BLUE)gcc $(WHITE)$(notdir $@)$(NOC)"

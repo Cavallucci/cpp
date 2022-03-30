@@ -6,7 +6,7 @@
 /*   By: lcavallu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 08:19:45 by lcavallu          #+#    #+#             */
-/*   Updated: 2022/03/30 16:28:20 by lcavallu         ###   ########.fr       */
+/*   Updated: 2022/03/30 17:42:17 by lcavallu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
         HumanB(std::string name);
         ~HumanB(void);
         void    attack(void);
-		void	setWeapon(Weapon weapon);
+		void	setWeapon(Weapon &weapon);
 };
 
 #endif
