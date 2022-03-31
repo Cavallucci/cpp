@@ -11,10 +11,9 @@ std::cout << "                         __/ |                                    
 std::cout << "                        |___/                                                          |___/" << std::endl;
 }
 
-int main(void)
+int main(int argc, char **argv)
 {
 	Harl		harl;
-	std::string	input;
 
 	print_header();
 	std::cout << "Enter a level: ";

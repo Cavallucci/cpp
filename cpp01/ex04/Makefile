@@ -6,46 +6,42 @@
 #    By: lcavallu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/10 12:06:52 by lcavallu          #+#    #+#              #
-#    Updated: 2022/03/31 14:52:46 by lcavallu         ###   ########.fr        #
+#    Updated: 2022/03/31 15:41:47 by lcavallu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= Harl
+NAME    = replace
 
-CC		= clang++
+CC      = clang++
 
-FLAGS	= -Wall -Wextra -Werror -std=c++98 #-fsanitize=address
+FLAGS   = -Wall -Wextra -Werror -std=c++98
 
-INCLUDE	= include
+SRC_PATH    = src
 
-SRC_PATH	= src
+OBJ_PATH    = obj
 
-OBJ_PATH	= obj
+SOURCES =	main.cpp 
 
-SOURCES =	main.cpp \
-			Harl.cpp
+SRC = $(addprefix $(SRC_PATH)/,$(SOURCES))
 
-SRC	= $(addprefix $(SRC_PATH)/,$(SOURCES))
+OBJ = $(addprefix $(OBJ_PATH)/,$(SOURCES:.cpp=.o))
 
-OBJ	= $(addprefix $(OBJ_PATH)/,$(SOURCES:.cpp=.o))
+NOC     = \033[0m
+RED     = \033[1;31m
+GREEN   = \033[1;32m
+YELLOW  = \033[1;33m
+BLUE    = \033[1;34m
+WHITE   = \033[1;37m
 
-NOC		= \033[0m
-RED		= \033[1;31m
-GREEN	= \033[1;32m
-YELLOW	= \033[1;33m
-BLUE	= \033[1;34m
-WHITE	= \033[1;37m
-
-all: $(NAME)
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.cpp 
+	@mkdir -p $(OBJ_PATH)
+	@$(CC) $(FLAGS) -c -o $@ $<
 
 $(NAME): $(OBJ)
-	@$(CC) $(FLAGS) -o $@ $^ -lreadline
+	@$(CC) $(FLAGS) -o $@ $^ 
 	@echo "$(GREEN)$@$(NOC)"
 
-$(OBJ_PATH)/%.o: $(SRC_PATH)/%.cpp $(INCLUDE)
-	@mkdir -p obj
-	@$(CC) $(FLAGS) -I$(INCLUDE) -c -o $@ $<
-	@echo "$(BLUE)gcc $(WHITE)$(notdir $@)$(NOC)"
+all: $(NAME)
 
 clean:
 	@echo "$(RED)clean$(NOC)"
@@ -57,4 +53,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY:	all clean fclean re
+.PHONY: all clean fclean re

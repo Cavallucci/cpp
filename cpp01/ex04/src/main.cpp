@@ -29,9 +29,10 @@ static std::string concTwoStrings(const std::string &s1, const std::string& s2)
 static int	test_infile(char *inf)
 {
 	std::ifstream	infile;
+	std::string		line;
 
 	infile.open(inf);
-	if (infile.fail())
+	if (infile.fail() || !std::getline(infile, line))
 		return (1);
 	else
 	{
