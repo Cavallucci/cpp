@@ -52,6 +52,10 @@ void	Harl::complain(std::string level)
 	for(int i = 0; i < 4; i++)
 	{
 		if (level == function[i])
+		{
 			(this->*choose_ptr[i])();
+			return ;
+		}
 	}
+	std::cerr << "Parameter is not good\n";
 }
