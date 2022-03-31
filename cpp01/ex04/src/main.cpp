@@ -1,42 +1,37 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <string>
 
-static void	modify(std::string buf, std::string s1, std::string s2)
-{/*
-	int	j;
+static std::string	modify(std::string buf, std::string s1, std::string s2)
+{
+	size_t	p = 0;
+	size_t	tmp = 0;
 
-	for (int i = 0; i < buf.length() ; i++)
+	while (p != std::string::npos)
 	{
-		j = 0;
-		for (buf[i] == s1[j]; j < s1.length() ; j++)
-			if (j == s1.length)
-				
+		tmp = buf.std::string::find(s1, p);
+		if (tmp != std::string::npos)
+		{
+			buf.std::string::erase(tmp, s1.length());
+			buf.std::string::insert(tmp, s2);
 		}
-	}*/
-	int p;
-	p = std::find(buf, buf.end(), s1);
-	if (p != buf.end())
-	{
-		if (s1.length() > s2.length())
-			replace(p, s1.length(), s2);
-		else
-			replace(p, s2.length(), s2);
+		p += tmp;
 	}
+	return (buf);
 }
 
 int	main(int argc, char **argv)
 {
 	(void)argc;
 	std::ifstream			ifs(argv[1]);
-	const std::string		S1 = argv[2];
-	const std::string		S2 = argv[3];
 	std::stringstream		buffer;
 	std::string				replace;
 	std::ofstream			ofs("i.replace");
 
 	buffer << ifs.rdbuf();
-	replace = modify(buffer.str(), argv[2], argv[3]);
+	replace = buffer.str();
+	replace = modify(replace, argv[2], argv[3]);
 	ofs << replace;
 
 	ifs.close();
