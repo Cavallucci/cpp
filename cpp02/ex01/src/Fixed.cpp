@@ -23,7 +23,7 @@ Fixed::Fixed(int const i)
 Fixed::Fixed(float const f)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->_integerc = roundf(f * (1 << _integerf));
+	this->_integerf = roundf(f * (1 << _integerc));
 	return ;
 }
 
@@ -35,12 +35,12 @@ Fixed::~Fixed(void)
 
 int	Fixed::toInt(void) const
 {
-	return (int(this->_raw_bits >> _integerf));
+	return (int(this->_integerf >> _integerc));
 }
 
 float	Fixed::toFloat(void) const
 {
-	return (float(this->_raw_bits) / float(1 << _binary_point));
+	return (float(this->_integerf) / float(1 << _integerc));
 }
 
 int	Fixed::getRawBits(void) const
