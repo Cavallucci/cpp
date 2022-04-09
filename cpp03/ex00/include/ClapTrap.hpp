@@ -13,19 +13,20 @@
 class ClapTrap
 {
 	public:
+		ClapTrap(void);
 		ClapTrap(std::string const name);
 		~ClapTrap(void);
 		ClapTrap(ClapTrap const &src);
 
-		ClapTrap	&operator=(ClapTrap const & rhs);
+		ClapTrap	&operator=(ClapTrap const &rhs);
 		void		attack(const std::string &target);
 		void 		takeDamage(unsigned int amount);
 		void		beRepaired(unsigned int amount);
 
 	private:
-		std::string	_Name;
-		int			_HitPoints;
-		int			_EnergyPoints;
-		int			_AttackDamage;
+		std::string		_Name;
+		unsigned int	_HitPoints;
+		unsigned int	_EnergyPoints;
+		unsigned int	_AttackDamage;
 };
 #endif
