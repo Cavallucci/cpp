@@ -2,18 +2,14 @@
  
 Brain::Brain(void)
 {
-	std::cout << "constructor brain" << std::endl;
-	return ;
 }
  
 Brain::~Brain(void)
 {
-	std::cout << "destructor brain" << std::endl;
 }
  
 Brain::Brain(Brain const & src)
 {
-	std::cout << "copy constructor brain" << std::endl;
    *this = src;
 }
  
