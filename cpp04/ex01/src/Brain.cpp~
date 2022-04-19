@@ -1,0 +1,20 @@
+#include "Brain.hpp"
+ 
+Brain::Brain(void)
+{
+}
+ 
+Brain::~Brain(void)
+{
+}
+ 
+Brain::Brain(Brain const & src)
+{
+   *this = src;
+}
+ 
+Brain &    Brain::operator=(Brain const & rhs)
+{
+	this->_ideas = rhs._ideas;
+   return (*this);
+}
