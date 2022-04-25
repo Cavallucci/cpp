@@ -6,11 +6,11 @@
 #    By: lcavallu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/10 12:06:52 by lcavallu          #+#    #+#              #
-#    Updated: 2022/04/15 17:17:24 by lcavallu         ###   ########.fr        #
+#    Updated: 2022/04/25 18:28:22 by lcavallu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= Animal
+NAME	= Materia
 
 CC		= c++
 
@@ -23,11 +23,7 @@ SRC_PATH	= src
 OBJ_PATH	= obj
 
 SOURCES =	main.cpp \
-			Animal.cpp \
-			Dog.cpp \
-			Cat.cpp \
-			WrongAnimal.cpp \
-			WrongCat.cpp
+			AMateria.cpp 
 
 SRC	= $(addprefix $(SRC_PATH)/,$(SOURCES))
 
@@ -43,7 +39,7 @@ WHITE	= \033[1;37m
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(FLAGS) -o $@ $^ -lreadline
+	@$(CC) $(FLAGS) -o $@ $^
 	@echo "$(GREEN)$@$(NOC)"
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.cpp $(INCLUDE)
