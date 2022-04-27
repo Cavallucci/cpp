@@ -35,5 +35,5 @@ std::string const &AMateria::getType(void)
 
 void	AMateria::use(ICharacter &target)
 {
-	std::cout << "user " << std::endl;
+	std::cout << "use in ICharacter" << std::endl;
 }
