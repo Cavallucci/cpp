@@ -10,7 +10,7 @@ AMateria::~AMateria(void)
 	std::cout << "Destructor AMateria" << std::endl;
 }
 
-AMateria::AMateria(std::string const type)
+AMateria::AMateria(std::string const &type)
 {
 	this->_type = type;
 	std::cout << "Constructor AMateria" << std::endl;
@@ -28,12 +28,12 @@ AMateria &    AMateria::operator=(AMateria const & rhs)
 	return (*this);
 }
 
-std::string const &AMateria::getType(void)
+std::string const &AMateria::getType(void) const
 {
 	return (this->_type);
 }
 
 void	AMateria::use(ICharacter &target)
 {
-	std::cout << "use in ICharacter" << std::endl;
+	std::cout << "use in ICharacter" << target.getName() << std::endl;
 }

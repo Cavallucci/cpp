@@ -18,7 +18,7 @@ class Character : public ICharacter
 		virtual void				use(int idx, ICharacter &target);	
 
 	private:
-		AMateria	*inventory[4];
+		AMateria	*_inventory[4];
 		std::string	_name;
 };
 #endif

@@ -12,7 +12,7 @@ Cure::~Cure(void)
 	return;
 }
  
-Cure::Cure(Cure const & src) : AMaterie(src)
+Cure::Cure(Cure const & src) : AMateria(src)
 {
 	*this = src;
 	std::cout << "Copy Cure" << std::endl;

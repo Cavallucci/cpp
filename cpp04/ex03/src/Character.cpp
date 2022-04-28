@@ -4,7 +4,7 @@ Character::Character(std::string name) : _name(name)
 {
 	std::cout << "Constructor Character" << std::endl;
 	for (int i = 0; i < 4; i++)
-		this->inventory[i] = NULL;
+		this->_inventory[i] = NULL;
 }
  
 Character::~Character(void)
@@ -21,7 +21,7 @@ Character::Character(Character const & src)
 Character	&Character::operator=(Character const &rhs)
 {
 	for (int i = 0; i < 4; i++)
-		this->inventory[i] = rhs.inventory[i];
+		this->_inventory[i] = rhs._inventory[i];
 	this->_name = rhs._name;
 	return (*this);
 }
@@ -53,5 +53,5 @@ void	Character::unequip(int idx)
 void	Character::use(int idx, ICharacter &target)
 {
 	if (idx >= 0 && idx < 4 && _inventory[idx] != NULL)
-		this->_inventory[idx]->use(target);
+			this->_inventory[idx]->use(target);
 }

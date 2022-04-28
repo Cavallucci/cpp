@@ -2,8 +2,8 @@
 
 Ice::Ice(void) : AMateria("ice")
 {
-	std::cout << "Constructor Ice" << std::endl;                                
-    return; 
+	std::cout << "Constructor Ice" << std::endl;
+	return; 
 }
  
 Ice::~Ice(void)
