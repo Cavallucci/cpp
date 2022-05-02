@@ -20,6 +20,7 @@ int	main(void)
 	}
 	
 	std::cout << std::endl;
+	std::cout << bob << std::endl;
 	
 	try
 	{
@@ -31,5 +32,5 @@ int	main(void)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	return;
+	std::cout << bob << std::endl;
 }
