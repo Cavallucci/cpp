@@ -12,14 +12,19 @@ int main()
 	const WrongAnimal *a= new WrongAnimal();
 	const WrongAnimal *w = new WrongCat();
 
+	std::cout << std::endl;
+
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 	std::cout << w->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
-	w->makeSound();
-	a->makeSound();
+
+	std::cout << std::endl;
+
+	i->makeSound();//cat
+	j->makeSound();//dog
+	meta->makeSound();//animal
+	w->makeSound();//wrongcat
+	a->makeSound();//wronganimal
 
 	
 return 0;

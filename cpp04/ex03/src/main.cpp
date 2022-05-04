@@ -9,9 +9,11 @@
 int main()
 {
 	IMateriaSource* src = new MateriaSource();
-	
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
+	Ice*	ice = new Ice();
+	Cure*	cure = new Cure();
+
+	src->learnMateria(ice);
+	src->learnMateria(cure);
 	
 	ICharacter	*me = new Character("me");
 	
@@ -20,8 +22,6 @@ int main()
 	std::cout << std::endl;
 
 	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
 	me->equip(tmp);
 
 	std::cout << std::endl;
@@ -37,6 +37,8 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
-	
+	delete ice;
+	delete cure;
+	delete tmp;
 	return 0;
 }

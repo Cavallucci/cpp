@@ -25,5 +25,5 @@ WrongCat &    WrongCat::operator=(WrongCat const & rhs)
 
 void	WrongCat::makeSound(void) const
 {
-	std::cout << "**WRONG SOUND**" << std::endl;
+	std::cout << "**WRONG CAT SOUND**" << std::endl;
 }

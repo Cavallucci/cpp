@@ -11,7 +11,7 @@ int main()
 	const Animal	*i = new Cat();
 	Animal		*animal[10];
 
-	delete j;//verify leaks
+	delete j;
 	delete i;
 	
 	std::cout << std::endl;
@@ -24,5 +24,10 @@ int main()
 
 	for (int j = 0; j < 4; j++)
 		delete animal[j];
-return 0;
+
+	Dog basic;
+	{
+		Dog tmp = basic;
+	}
+	return 0;
 }

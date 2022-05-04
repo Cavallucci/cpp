@@ -13,7 +13,7 @@ MateriaSource::~MateriaSource(void)
 }
  
 MateriaSource::MateriaSource(MateriaSource const & src)
-{
+{	
 	std::cout << "Copy MateriaSource" << std::endl;
 	*this = src;
 }

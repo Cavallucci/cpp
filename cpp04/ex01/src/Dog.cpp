@@ -18,14 +18,17 @@ Dog::~Dog(void)
 
 Dog::Dog(Dog const & src) : Animal()
 {
-   *this = src;
+	if (_brain != NULL)
+		_brain = new Brain(*src._brain);
    	std::cout << "copy constructor dog" << std::endl;
 }
  
 Dog &    Dog::operator=(Dog const & rhs)
 {
 	this->_Type = rhs._Type;
-   return (*this);
+	if (_brain != NULL)
+		_brain = new Brain(*rhs._brain);
+	return (*this);
 }
 
 void	Dog::makeSound(void) const

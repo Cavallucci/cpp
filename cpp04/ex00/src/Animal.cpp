@@ -2,11 +2,13 @@
  
 Animal::Animal(void)
 {
+	std::cout << "Constructor Animal" << std::endl;
 	return ;
 }
  
 Animal::~Animal(void)
 {
+	std::cout << "Destructor Animal" << std::endl;
 	return ;
 }
 
@@ -17,6 +19,7 @@ std::string	Animal::getType(void) const
 
 Animal::Animal(Animal const & src)
 {
+	std::cout << "Copy Animal" << std::endl;
    *this = src;
 }
  

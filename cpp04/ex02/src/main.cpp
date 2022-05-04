@@ -13,7 +13,7 @@ int main()
 	
 	i->makeSound();
 	j->makeSound();
-	delete j;//verify leaks
+	delete j;
 	delete i;
 	
 	std::cout << std::endl;
@@ -26,5 +26,6 @@ int main()
 
 	for (int j = 0; j < 4; j++)
 		delete animal[j];
-return 0;
+
+	return 0;
 }
