@@ -18,6 +18,7 @@ class AForm
 		unsigned int			getGradeSign() const;
 		unsigned int			getGradeExec() const;
 		void					beSigned(Bureaucrat const &bureaucrat);
+		void					beExecuted(Bureaucrat const &bureaucrat) const;
 		virtual void			execute(Bureaucrat const &executor) const = 0;
 		void					checkExec(Bureaucrat const &executor) const;
 

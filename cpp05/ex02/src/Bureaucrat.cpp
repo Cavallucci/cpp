@@ -84,9 +84,13 @@ void	Bureaucrat::signForm(AForm &f) const
 
 void	Bureaucrat::executeForm(AForm const &form)
 {
-	if (form.getSign() == true)
+	try
 	{
-		if (form.getSign() < this->_grade)
-			std::cout << this->_name << " executed " << form << std::endl;
+		form.beExecuted(*this);
+		std::cout << BLUE << this->_name << NOC << " executed " << RED << form.getName() << NOC << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << BLUE << this->_name << NOC << " couldn't execute " << RED << form.getName() << NOC << " because " << GREEN << e.what() << NOC << std::endl;
 	}
 }

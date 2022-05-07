@@ -6,27 +6,30 @@
 
 int	main(void)
 {
-	Bureaucrat				michmich("Michmich", 4);
-	ShrubberyCreationForm	form("Michel");
-	RobotomyRequestForm		form2("Guy");
-	PresidentialPardonForm	form3("Jose");
+	Bureaucrat test1("Guy", 1);
+	Bureaucrat test2("Jose", 35);
+	Bureaucrat test3("Laura", 149);
 
-	std::cout << form << std::endl;
-	std::cout << form2 << std::endl;
-	std::cout << form3 << std::endl;
+	AForm      *form1 = new PresidentialPardonForm("mauve");
+	AForm      *form2 = new ShrubberyCreationForm("sperer");
+	AForm      *form3 = new RobotomyRequestForm("pas");
 
-	michmich.signForm(form);
-	michmich.signForm(form2);
-	michmich.signForm(form3);
-	std::cout << std::endl;
-	
-	form.execute(michmich);
-	std::cout << std::endl;
-	michmich.executeForm(form);
+	std::cout << std::endl << "[ --TRY TO SIGN SUCESSFULLY-- ]" << std::endl;
+	test1.signForm(*form1);
 
-	form2.execute(michmich);
+	std::cout << std::endl << "[ --TRY TO EXECUTE SUCCESSFULLY-- ]" << std::endl;
+	test1.executeForm(*form1);
+
+	std::cout << std::endl << "[ -- SIGN UNSUCCESSFULLY BECAUSE NOT ALLOWED-- ]" << std::endl;
+	test3.signForm(*form2);
+
+	std::cout << std::endl << "[ --SIGN + TEST ROBOT-- ]" << std::endl;
+	test2.signForm(*form3);
+	std::cout << std::endl;
+	form3->execute(test2);
 	std::cout << std::endl;
 
-	form3.execute(michmich);
-	std::cout << std::endl;
+	delete form1;
+	delete form2;
+	delete form3;
 }
