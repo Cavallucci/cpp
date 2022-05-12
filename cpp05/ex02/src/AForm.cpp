@@ -3,6 +3,8 @@
 AForm::AForm(std::string const name, unsigned int sgrade, unsigned int egrade) :
 	_name(name), _sign(false), _gradeSign(sgrade), _gradeExec(egrade)
 {
+	if (_gradeSign < 1 || _gradeSign < 1) throw AForm::GradeTooHighException();                                     
+    else if (_gradeExec > 150 || _gradeExec > 150) throw AForm::GradeTooLowException();
 	std::cout << "Constructor Form" << std::endl;
 }
 
@@ -11,7 +13,8 @@ AForm::~AForm(void)
 	std::cout << "Desctructor Form" << std::endl;
 }
 
-AForm::AForm(AForm const & src)
+AForm::AForm(AForm const & src) :
+_name(src._name), _sign(src._sign), _gradeSign(src._gradeSign), _gradeExec(src._gradeExec)
 {
 	std::cout << "Copy Form" << std::endl;
 	*this = src;
@@ -19,8 +22,7 @@ AForm::AForm(AForm const & src)
 
 AForm &    AForm::operator=(AForm const & rhs)
 {
-	this->_gradeSign = rhs.getGradeSign();
-	this->_gradeExec = rhs.getGradeExec();
+	_sign = rhs._sign;
 	return (*this);
 }
 

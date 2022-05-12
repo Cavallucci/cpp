@@ -4,6 +4,7 @@ int	main(void)
 {
 	Bureaucrat	bob("bob", 149);
 	Bureaucrat	michel("michel", 1);
+//	Bureaucrat	error("error", 200);
 
 	std::cout << std::endl;
 

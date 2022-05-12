@@ -35,10 +35,10 @@ public:
 	Fixed	&operator--(void);
 	Fixed	operator--(int);
 
-	Static Fixed	&min(Fixed &a, Fixed &b);
-	Static Fixed const	&min(Fixed const &a, Fixed const &b);
-	Static Fixed	&max(Fixed &a, Fixed &b);
-	Static Fixed const	&max(Fixed const &a, Fixed const &b);
+	static Fixed	&min(Fixed &a, Fixed &b);
+	static Fixed const	&min(Fixed const &a, Fixed const &b);
+	static Fixed	&max(Fixed &a, Fixed &b);
+	static Fixed const	&max(Fixed const &a, Fixed const &b);
 	
 	int 	getRawBits(void) const;
 	void 	setRawBits(int const raw);

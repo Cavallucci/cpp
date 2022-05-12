@@ -31,10 +31,10 @@ class Form
 		};
 
 	private:
-		std::string const	_name;
-		bool				_sign;
-		unsigned int		_gradeSign;
-		unsigned int		_gradeExec;
+		std::string const		_name;
+		bool					_sign;
+		unsigned int const		_gradeSign;
+		unsigned int const		_gradeExec;
 };
 std::ostream        &operator<<(std::ostream &cout, Form const &i);
 #endif

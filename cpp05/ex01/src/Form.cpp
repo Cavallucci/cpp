@@ -3,6 +3,10 @@
 Form::Form(std::string const name, unsigned int sgrade, unsigned int egrade) :
 	_name(name), _sign(false), _gradeSign(sgrade), _gradeExec(egrade)
 {
+	if (_gradeSign < 1 || _gradeSign < 1)
+		throw Form::GradeTooHighException();
+	else if (_gradeExec > 150 || _gradeExec > 150)
+		throw Form::GradeTooLowException();
 	std::cout << "Constructor Form" << std::endl;
 }
 
@@ -11,7 +15,8 @@ Form::~Form(void)
 	std::cout << "Desctructor Form" << std::endl;
 }
 
-Form::Form(Form const & src)
+Form::Form(Form const & src) :
+_name(src._name), _sign(src._sign), _gradeSign(src._gradeSign), _gradeExec(src._gradeExec)
 {
 	std::cout << "Copy Form" << std::endl;
 	*this = src;
@@ -19,8 +24,7 @@ Form::Form(Form const & src)
 
 Form &    Form::operator=(Form const & rhs)
 {
-	this->_gradeSign = rhs.getGradeSign();
-	this->_gradeExec = rhs.getGradeExec();
+	this->_sign = rhs._sign;
 	return (*this);
 }
 
@@ -56,7 +60,7 @@ void	Form::beSigned(Bureaucrat const &bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->_gradeSign)
 		throw Form::GradeTooLowException();
-	this->_gradeSign = true;
+	this->_sign = true;
 }
 
 const char  *Form::GradeTooHighException::what() const throw()

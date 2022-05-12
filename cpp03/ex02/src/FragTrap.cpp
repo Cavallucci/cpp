@@ -42,6 +42,19 @@ FragTrap	&FragTrap::operator=(FragTrap const & rhs)
     return (*this);
 }
 
+void	FragTrap::attack(const std::string &target)
+{
+	std::cout << GREEN << "[FRAG] " << NOC;
+	if (_EnergyPoints > 0 && _HitPoints > 0)
+	{
+		std::cout << "💥 ";
+		std::cout << BLUE << _Name << NOC << " attacks " << BLUE << target << NOC << ", causing " << RED << _AttackDamage << NOC << " points of damage!" << std::endl;
+		this->_EnergyPoints--;
+	}
+	else
+		std::cout << "🔋 " << BLUE << _Name << NOC << " does not have enough points" << std::endl;
+}
+
 void	FragTrap::highFivesGuys(void)
 {
 	std::cout << GREEN << "[FRAG] " << NOC;

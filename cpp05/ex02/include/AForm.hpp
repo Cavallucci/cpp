@@ -41,8 +41,8 @@ class AForm
 	private:
 		std::string const	_name;
 		bool				_sign;
-		unsigned int		_gradeSign;
-		unsigned int		_gradeExec;
+		unsigned int const	_gradeSign;
+		unsigned int const	_gradeExec;
 };
 std::ostream        &operator<<(std::ostream &cout, AForm const &i);
 #endif

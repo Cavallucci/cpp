@@ -6,11 +6,11 @@
 #    By: lcavallu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/10 12:06:52 by lcavallu          #+#    #+#              #
-#    Updated: 2022/04/11 14:12:15 by lcavallu         ###   ########.fr        #
+#    Updated: 2022/05/12 11:33:57 by lcavallu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= FragTrap
+NAME	= Conversion
 
 CC		= c++
 
@@ -23,9 +23,7 @@ SRC_PATH	= src
 OBJ_PATH	= obj
 
 SOURCES =	main.cpp \
-			ClapTrap.cpp \
-			ScavTrap.cpp \
-			FragTrap.cpp
+			Conversion.cpp 
 
 SRC	= $(addprefix $(SRC_PATH)/,$(SOURCES))
 
@@ -41,7 +39,7 @@ WHITE	= \033[1;37m
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(FLAGS) -o $@ $^ -lreadline
+	@$(CC) $(FLAGS) -o $@ $^
 	@echo "$(GREEN)$@$(NOC)"
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.cpp $(INCLUDE)
