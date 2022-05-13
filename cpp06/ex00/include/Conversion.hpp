@@ -3,6 +3,15 @@
 
 #include <iostream>
 #include <cctype>
+#include <cstdlib>
+#include <iomanip>
+
+# define NOC	"\033[0m"
+# define RED	"\033[1;31m"
+# define GREEN	"\033[1;32m"
+# define YELLOW	"\033[1;33m"
+# define BLUE	"\033[1;34m"
+# define WHITE	"\033[1;37m"
 
 typedef enum e_type
 {
@@ -17,19 +26,20 @@ class Conversion
 {
 	public:
 		Conversion(void);
-		Conversion(std::string a);
+		Conversion(char *a);
 		~Conversion(void);
 		Conversion(Conversion const & src);
 
 		Conversion		&operator=(Conversion const &rhs);
 		void			printValue(void);
-		void			checkType(std::string a);
+		void			checkType(char *a);
+		void			transferType(void);
 
 	private:
-		char	_char;
-		int		_int;
-		float	_float;
-		double	_double;
-		t_type	_type;
+		char			_char;
+		long int		_int;
+		float			_float;
+		double			_double;
+		t_type			_type;
 };
 #endif

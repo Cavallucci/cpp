@@ -1,6 +1,6 @@
 #include "Conversion.hpp"
 
-Conversion::Conversion(std::string a) : 
+Conversion::Conversion(char	*a) : 
 _char('\0'), _int(0), _float(0), _double(0), _type(INT)
 {
 	std::cout << "Conversion constructor" << std::endl;
@@ -36,10 +36,20 @@ Conversion	&Conversion::operator=(Conversion const &rhs)
 
 void	Conversion::printValue(void)
 {
+	std::cout << BLUE << "char" << NOC << ": " << this->_char << std::endl;
+	std::cout << BLUE << "int" << NOC << ": " << this->_int << std::endl;
+	std::cout << BLUE << "float" << NOC << ": " << this->_float << "f" << std::endl;
+	std::cout << BLUE << "double" << NOC << ": " << this->_double << std::endl;
+}
+
+void	Conversion::transferType(void)
+{
 	switch (_type)
 	{
 		case INT:
-			std::cout << "int" << std::endl;
+			this->_char = static_cast<char>(_int);
+			this->_float = static_cast<float>(_int);
+			this->_double = static_cast<double>(_int);
 			break;
 		case FLOAT:
 			std::cout << "float" << std::endl;
@@ -56,17 +66,29 @@ void	Conversion::printValue(void)
 	}
 }
 
-void	Conversion::checkType(std::string a)
+void	Conversion::checkType(char *a)
 {
-	int i = 0;
+	int 	i = 0;
+	bool 	point = false;
 	
 	if (isdigit(a[0]))
 	{
 		while (a[i])
+		{
+			if (a[i] == '.')
+				point = true;	
 			i++;
+		}
 		if (a[i - 1] == 'f')
-			this->_type = FLOAT;	
+		{
+			this->_type = FLOAT;
+		}
+		else if (point == true)
+			this->_type = DOUBLE;
+		else
+			this->_int = std::strtol(a, NULL, 0);
 	}
 	else if (isalpha(a[0]))
 		_type = CHAR;
+	transferType();
 }
