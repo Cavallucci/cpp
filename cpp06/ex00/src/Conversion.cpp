@@ -36,10 +36,11 @@ Conversion	&Conversion::operator=(Conversion const &rhs)
 
 void	Conversion::printValue(void)
 {
-	std::cout << BLUE << "char" << NOC << ": " << this->_char << std::endl;
-	std::cout << BLUE << "int" << NOC << ": " << this->_int << std::endl;
-	std::cout << BLUE << "float" << NOC << ": " << this->_float << "f" << std::endl;
-	std::cout << BLUE << "double" << NOC << ": " << this->_double << std::endl;
+	std::cout << BLUE << "char" << NOC << ":	" << this->_char << std::endl;
+	std::cout << BLUE << "int" << NOC << ":	" << this->_int << std::endl;
+	std::cout << std::fixed;
+	std::cout << BLUE << "float" << NOC << ":	" << std::setprecision(1) << this->_float << "f" << std::endl;
+	std::cout << BLUE << "double" << NOC << ":	" << this->_double << std::endl;
 }
 
 void	Conversion::transferType(void)
@@ -52,18 +53,42 @@ void	Conversion::transferType(void)
 			this->_double = static_cast<double>(_int);
 			break;
 		case FLOAT:
-			std::cout << "float" << std::endl;
+			this->_char = static_cast<char>(_float);
+			this->_int = static_cast<int>(_float);
+			this->_double = static_cast<double>(_float);
 			break;
 		case DOUBLE:
-			std::cout << "double" << std::endl;
+			this->_char = static_cast<char>(_double);
+			this->_int = static_cast<int>(_double);
+			this->_float = static_cast<float>(_double);
 			break;
 		case CHAR:
-			std::cout << "char" << std::endl;
+			this->_double = static_cast<double>(_char);
+			this->_int = static_cast<int>(_char);
+			this->_float = static_cast<float>(_char);
 			break;
 		case ERROR:
-			std::cout << "error" << std::endl;
 			break;
 	}
+}
+
+bool	ft_isdigit(char *a)
+{
+	int i = 0;
+	double d;
+
+	d = atof(a);
+	if (std::isinf(d) || std::isnan(d))
+		return (true);
+	if (a[i] == '-')
+		i++;
+	while (a[i])
+	{
+		if (!isdigit(a[i]))
+			return (false);
+		i++;
+	}
+	return (true);
 }
 
 void	Conversion::checkType(char *a)
@@ -71,7 +96,7 @@ void	Conversion::checkType(char *a)
 	int 	i = 0;
 	bool 	point = false;
 	
-	if (isdigit(a[0]))
+	if (ft_isdigit(a) == true)
 	{
 		while (a[i])
 		{
@@ -81,10 +106,14 @@ void	Conversion::checkType(char *a)
 		}
 		if (a[i - 1] == 'f')
 		{
+			this->_float = atof(a);
 			this->_type = FLOAT;
 		}
 		else if (point == true)
+		{
+			this->_double = atof(a);
 			this->_type = DOUBLE;
+		}
 		else
 			this->_int = std::strtol(a, NULL, 0);
 	}

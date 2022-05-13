@@ -5,6 +5,10 @@
 #include <cctype>
 #include <cstdlib>
 #include <iomanip>
+#include <cstring>
+#include <cmath>
+#include <climits>
+#include <string>
 
 # define NOC	"\033[0m"
 # define RED	"\033[1;31m"
