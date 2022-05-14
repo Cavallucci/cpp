@@ -23,7 +23,6 @@ typedef enum e_type
 	FLOAT,
 	DOUBLE,
 	CHAR,
-	ERROR
 }t_type;
 
 class Conversion
@@ -38,6 +37,7 @@ class Conversion
 		void			printValue(void);
 		void			checkType(char *a);
 		void			transferType(void);
+		bool			ft_isdigit(char *a);
 
 	private:
 		char			_char;
@@ -45,5 +45,8 @@ class Conversion
 		float			_float;
 		double			_double;
 		t_type			_type;
+		bool			_charImpossible;
+		bool			_charNonPrintable;
+		bool			_intImpossible;
 };
 #endif

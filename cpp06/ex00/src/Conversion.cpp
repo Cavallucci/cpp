@@ -1,7 +1,7 @@
 #include "Conversion.hpp"
 
 Conversion::Conversion(char	*a) : 
-_char('\0'), _int(0), _float(0), _double(0), _type(INT)
+_char('\0'), _int(0), _float(0), _double(0), _type(INT), _charImpossible(false), _charNonPrintable(false), _intImpossible(false)
 {
 	std::cout << "Conversion constructor" << std::endl;
 	checkType(a);
@@ -36,8 +36,19 @@ Conversion	&Conversion::operator=(Conversion const &rhs)
 
 void	Conversion::printValue(void)
 {
-	std::cout << BLUE << "char" << NOC << ":	" << this->_char << std::endl;
-	std::cout << BLUE << "int" << NOC << ":	" << this->_int << std::endl;
+	if (this->_charImpossible == true)
+		std::cout << BLUE << "char" << NOC << ":	" << RED <<
+		"char impossible" << NOC << std::endl;
+	else if (this->_charNonPrintable == true)
+		std::cout << BLUE << "char" << NOC << ":	" << RED <<
+		"char non printable" << NOC << std::endl;
+	else
+		std::cout << BLUE << "char" << NOC << ":	" << this->_char << std::endl;
+	if (this->_intImpossible == true)
+		std::cout << BLUE << "int" << NOC << ":	" << RED <<
+		"int impossible" << NOC << std::endl;
+	else
+		std::cout << BLUE << "int" << NOC << ":	" << this->_int << std::endl;
 	std::cout << std::fixed;
 	std::cout << BLUE << "float" << NOC << ":	" << std::setprecision(1) << this->_float << "f" << std::endl;
 	std::cout << BLUE << "double" << NOC << ":	" << this->_double << std::endl;
@@ -67,19 +78,22 @@ void	Conversion::transferType(void)
 			this->_int = static_cast<int>(_char);
 			this->_float = static_cast<float>(_char);
 			break;
-		case ERROR:
-			break;
 	}
 }
 
-bool	ft_isdigit(char *a)
+bool	Conversion::ft_isdigit(char *a)
 {
 	int i = 0;
 	double d;
 
 	d = atof(a);
 	if (std::isinf(d) || std::isnan(d))
+	{
+		this->_charImpossible = true;
+		this->_intImpossible = true;
+		this->_charNonPrintable = false;
 		return (true);
+	}
 	if (a[i] == '-')
 		i++;
 	while (a[i])
