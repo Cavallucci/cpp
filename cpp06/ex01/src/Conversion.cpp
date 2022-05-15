@@ -38,15 +38,15 @@ void	Conversion::printValue(void)
 {
 	if (this->_charImpossible == true)
 		std::cout << BLUE << "char" << NOC << ":	" << RED <<
-		"char impossible" << NOC << std::endl;
+		"impossible" << NOC << std::endl;
 	else if (this->_charNonPrintable == true)
 		std::cout << BLUE << "char" << NOC << ":	" << RED <<
-		"char non printable" << NOC << std::endl;
+		"non printable" << NOC << std::endl;
 	else
 		std::cout << BLUE << "char" << NOC << ":	" << this->_char << std::endl;
 	if (this->_intImpossible == true)
 		std::cout << BLUE << "int" << NOC << ":	" << RED <<
-		"int impossible" << NOC << std::endl;
+		"impossible" << NOC << std::endl;
 	else
 		std::cout << BLUE << "int" << NOC << ":	" << this->_int << std::endl;
 	std::cout << std::fixed;
@@ -89,6 +89,8 @@ bool	Conversion::ft_isdigit(char *a)
 	d = atof(a);
 	if (std::isinf(d) || std::isnan(d))
 	{
+		this->_double = atof(a);
+		this->_type = DOUBLE;
 		this->_charImpossible = true;
 		this->_intImpossible = true;
 		this->_charNonPrintable = false;
@@ -126,20 +128,32 @@ void	Conversion::checkType(char *a)
 		if (a[i - 1] == 'f')
 		{
 			this->_float = atof(a);
+			if (_float > 127 || _float < -127)
+				_charImpossible = true;
 			this->_type = FLOAT;
 		}
 		else if (point == true)
 		{
 			this->_double = atof(a);
+			if (_double > 127 || _double < -127)
+				_charImpossible = true;
 			this->_type = DOUBLE;
 		}
 		else
 		{
-			_charNonPrintable = true;
-			this->_int = std::strtol(a, NULL, 0);
+			this->_int = std::strtol(a, NULL, 10);
+			if (_int > 127 || _int < -127)
+				_charImpossible = true;
+			else if (!std::isprint(_int))
+				_charNonPrintable = true;
+			if (_int > 2147483647 || _int < -2147483648)
+				_intImpossible = true;
 		}
 	}
 	else
-		_charNonPrintable = true;
+	{
+		_charImpossible = true;
+		_intImpossible = true;
+	}
 	transferType();
 }

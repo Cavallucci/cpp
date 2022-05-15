@@ -38,15 +38,15 @@ void	Conversion::printValue(void)
 {
 	if (this->_charImpossible == true)
 		std::cout << BLUE << "char" << NOC << ":	" << RED <<
-		"char impossible" << NOC << std::endl;
+		"impossible" << NOC << std::endl;
 	else if (this->_charNonPrintable == true)
 		std::cout << BLUE << "char" << NOC << ":	" << RED <<
-		"char non printable" << NOC << std::endl;
+		"non printable" << NOC << std::endl;
 	else
 		std::cout << BLUE << "char" << NOC << ":	" << this->_char << std::endl;
 	if (this->_intImpossible == true)
 		std::cout << BLUE << "int" << NOC << ":	" << RED <<
-		"int impossible" << NOC << std::endl;
+		"impossible" << NOC << std::endl;
 	else
 		std::cout << BLUE << "int" << NOC << ":	" << this->_int << std::endl;
 	std::cout << std::fixed;
@@ -151,6 +151,9 @@ void	Conversion::checkType(char *a)
 		}
 	}
 	else
-		_charNonPrintable = true;
+	{
+		_charImpossible = true;
+		_intImpossible = true;
+	}
 	transferType();
 }
