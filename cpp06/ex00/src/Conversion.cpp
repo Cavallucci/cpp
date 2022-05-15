@@ -128,15 +128,27 @@ void	Conversion::checkType(char *a)
 		if (a[i - 1] == 'f')
 		{
 			this->_float = atof(a);
+			if (_float > 127 || _float < -127)
+				_charImpossible = true;
 			this->_type = FLOAT;
 		}
 		else if (point == true)
 		{
 			this->_double = atof(a);
+			if (_double > 127 || _double < -127)
+				_charImpossible = true;
 			this->_type = DOUBLE;
 		}
 		else
-			this->_int = std::strtol(a, NULL, 0);
+		{
+			this->_int = std::strtol(a, NULL, 10);
+			if (_int > 127 || _int < -127)
+				_charImpossible = true;
+			else if (!std::isprint(_int))
+				_charNonPrintable = true;
+			if (_int > 2147483647 || _int < -2147483648)
+				_intImpossible = true;
+		}
 	}
 	else
 		_charNonPrintable = true;
