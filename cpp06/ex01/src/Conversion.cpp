@@ -89,8 +89,6 @@ bool	Conversion::ft_isdigit(char *a)
 	d = atof(a);
 	if (std::isinf(d) || std::isnan(d))
 	{
-		this->_double = atof(a);
-		this->_type = DOUBLE;
 		this->_charImpossible = true;
 		this->_intImpossible = true;
 		this->_charNonPrintable = false;
@@ -136,7 +134,10 @@ void	Conversion::checkType(char *a)
 			this->_type = DOUBLE;
 		}
 		else
+		{
+			_charNonPrintable = true;
 			this->_int = std::strtol(a, NULL, 0);
+		}
 	}
 	else
 		_charNonPrintable = true;
