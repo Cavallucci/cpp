@@ -1,13 +1,23 @@
-#include "Conversion.hpp"
+#include "Data.hpp"
 
-int main(int argc, char **argv)
+int	main()
 {
-	if (argc == 2)
-	{
-		Conversion	convert(argv[1]);
+	Data		data;
+	Data		*copy;
+	uintptr_t	nbr;
 
-		convert.printValue();
-	}
-	else
-		std::cerr << "Error: Arguments" << std::endl;
+	data.nb1 = 42;
+	data.nb2 = 0;
+
+	std::cout << "Data: " << std::endl;
+	std::cout << "A: " << data.nb1 << std::endl;
+	std::cout << "B: " << data.nb2 << std::endl;
+
+	nbr = serialize(&data);
+	copy = deserialize(nbr);
+	std::cout << std::endl;
+
+    std::cout << "Copy: " << std::endl;
+    std::cout << "A: " << copy->nb1 << std::endl;
+    std::cout << "B: " << copy->nb2 << std::endl;
 }

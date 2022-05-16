@@ -6,7 +6,7 @@
 #    By: lcavallu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/10 12:06:52 by lcavallu          #+#    #+#              #
-#    Updated: 2022/05/16 15:22:32 by lcavallu         ###   ########.fr        #
+#    Updated: 2022/05/16 19:32:27 by lcavallu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC_PATH	= src
 OBJ_PATH	= obj
 
 SOURCES =	main.cpp \
-			Data.cpp 
+			Base.cpp 
 
 SRC	= $(addprefix $(SRC_PATH)/,$(SOURCES))
 

@@ -6,11 +6,11 @@
 #    By: lcavallu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/10 12:06:52 by lcavallu          #+#    #+#              #
-#    Updated: 2022/05/12 11:33:57 by lcavallu         ###   ########.fr        #
+#    Updated: 2022/05/16 14:40:17 by lcavallu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= Conversion
+NAME	= Serialization
 
 CC		= c++
 
@@ -23,7 +23,7 @@ SRC_PATH	= src
 OBJ_PATH	= obj
 
 SOURCES =	main.cpp \
-			Conversion.cpp 
+			Data.cpp 
 
 SRC	= $(addprefix $(SRC_PATH)/,$(SOURCES))
 
