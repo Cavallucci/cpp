@@ -6,7 +6,7 @@
 #    By: lcavallu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/10 12:06:52 by lcavallu          #+#    #+#              #
-#    Updated: 2022/05/20 16:19:15 by lcavallu         ###   ########.fr        #
+#    Updated: 2022/05/20 17:01:18 by lcavallu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,7 @@ SRC_PATH	= src
 
 OBJ_PATH	= obj
 
-SOURCES =	main.cpp \
-			Array.cpp
+SOURCES =	main.cpp 
 
 SRC	= $(addprefix $(SRC_PATH)/,$(SOURCES))
 
