@@ -4,12 +4,18 @@
 #include <iostream>
 
 template< typename T>
-void	iter( T	*array, int i, void (*f)(T &))
+void	iter( T	*array, int i, void (*f)(T &array))
 {
 	int j = -1;
 
 	while (++j < i)
-		f(x[j]);
+		f(array[j]);
+}
+
+template< typename T>
+void	increment(T &array)
+{
+	array++;
 }
 
 
