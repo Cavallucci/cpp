@@ -4,6 +4,8 @@
 #include <iostream>
 #include <algorithm>
 #include <list>
+#include <vector>
+#include <iterator>
 
 # define NOC	"\033[0m"
 # define RED	"\033[1;31m"
@@ -21,8 +23,9 @@ class Span
 
 		Span		&operator=(Span const &rhs);
 		void		addNumber(int nb);
-		void		shortestSpan();
-		void		longestSpan();
+		int			shortestSpan();
+		int			longestSpan();
+		void		addRange(unsigned int nb);
 
 		class AlreadyFullException : public std::exception
 		{
@@ -40,6 +43,6 @@ class Span
 
 	private:
 		unsigned int	_N;
-		std::list<int>	_lst;
+		std::vector<int>	_lst;
 };
 #endif
