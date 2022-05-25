@@ -6,6 +6,7 @@
 #include <list>
 #include <vector>
 #include <iterator>
+#include <climits>
 
 # define NOC	"\033[0m"
 # define RED	"\033[1;31m"

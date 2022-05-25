@@ -10,5 +10,11 @@ int main()
 	sp.addNumber(11);
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
+	
+	Span sp2 = Span(10);
+	sp2.addRange(10);
+	std::cout << sp2.shortestSpan() << std::endl;
+	std::cout << sp2.longestSpan() << std::endl;
+
 	return 0;
 }

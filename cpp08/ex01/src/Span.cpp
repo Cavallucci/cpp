@@ -33,7 +33,7 @@ int	Span::shortestSpan()
 {
 	std::vector<int>	tmp = _lst;
 	std::vector<int>::const_iterator it = tmp.begin();
-	int	span;
+	int	span = INT_MAX;
 
 	if (tmp.size() > 1)
 	{
@@ -67,5 +67,5 @@ void	Span::addRange(unsigned int nb)
 {
 	srand(time(NULL));
 	for (unsigned int i = 0; i < nb; i++)
-		this->addNumber(rand() % 2);
+		this->addNumber(rand() % 1000);
 }
